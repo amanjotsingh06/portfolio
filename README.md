@@ -82,10 +82,6 @@ The contact form is configured to work with Netlify Forms:
 - Add/remove skills
 - Update social media links
 
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
 ## 👤 Author
 
 **Amanjot Singh**
