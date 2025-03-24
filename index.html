@@ -176,7 +176,19 @@
     <section id="contact" class="contact">
         <h2 data-aos="fade-up">Contact Me</h2>
         <div class="contact-container" data-aos="fade-up">
-            <form name="contact" method="POST" data-netlify="true">
+            <form 
+                name="contact" 
+                method="POST" 
+                data-netlify="true"
+                netlify-honeypot="bot-field">
+                
+                <input type="hidden" name="form-name" value="contact" />
+                <p hidden>
+                    <label>
+                        Don't fill this out: <input name="bot-field" />
+                    </label>
+                </p>
+
                 <div class="form-group">
                     <input type="text" id="name" name="name" required>
                     <label for="name">Name</label>
@@ -188,6 +200,9 @@
                 <div class="form-group">
                     <textarea id="message" name="message" required></textarea>
                     <label for="message">Message</label>
+                </div>
+                <div id="success-message" style="display: none;" class="success-message">
+                    Thank you! Your message has been sent successfully.
                 </div>
                 <button type="submit" class="btn">Send Message</button>
             </form>
