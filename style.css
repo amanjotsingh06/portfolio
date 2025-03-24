@@ -447,7 +447,11 @@ section{
 
 .form-group {
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: 20px;
+}
+
+.form-group.hidden {
+    display: none;
 }
 
 .form-group input,
@@ -684,5 +688,22 @@ footer a:hover {
 
 .home-content h2 {
     margin-bottom: 1.5rem;
+}
+
+.success-message {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.success-message.show {
+    opacity: 1;
+    transform: translateY(0);
 }
   
