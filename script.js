@@ -76,20 +76,59 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Form submission
-const contactForm = document.getElementById('contact-form');
-
-contactForm.addEventListener('submit', (e) => {
+// Form handling
+document.querySelector("form[name='contact']").addEventListener("submit", function(e) {
     e.preventDefault();
     
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
+    const form = this;
+    const successMessage = document.getElementById("success-message");
+    const submitButton = form.querySelector("button[type='submit']");
+    
+    // Disable button and show loading state
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending...";
 
-    // Here you would typically send the form data to a server
-    // For now, we'll just show a success message
-    alert('Thank you for your message! I will get back to you soon.');
-    contactForm.reset();
+    // Submit the form data to Netlify
+    fetch("/", {
+        method: "POST",
+        body: new FormData(form)
+    })
+    .then(() => {
+        // Show success message
+        successMessage.style.display = "block";
+        setTimeout(() => successMessage.classList.add("show"), 100);
+        
+        // Reset form
+        form.reset();
+        
+        // Hide form fields
+        Array.from(form.querySelectorAll(".form-group")).forEach(group => {
+            group.classList.add("hidden");
+        });
+        
+        // Hide submit button
+        submitButton.style.display = "none";
+        
+        // Reset form after 5 seconds
+        setTimeout(() => {
+            successMessage.classList.remove("show");
+            setTimeout(() => {
+                successMessage.style.display = "none";
+                Array.from(form.querySelectorAll(".form-group")).forEach(group => {
+                    group.classList.remove("hidden");
+                });
+                submitButton.style.display = "block";
+                submitButton.disabled = false;
+                submitButton.textContent = "Send Message";
+            }, 300);
+        }, 5000);
+    })
+    .catch((error) => {
+        console.error(error);
+        submitButton.disabled = false;
+        submitButton.textContent = "Send Message";
+        alert("There was a problem sending your message. Please try again.");
+    });
 });
 
 // Progress bar animation on scroll
