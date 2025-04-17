@@ -7,7 +7,6 @@ A modern, responsive portfolio website built with HTML, CSS, and JavaScript. Fea
 - **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
 - **Dark/Light Mode**: Toggle between dark and light themes
 - **Smooth Animations**: Powered by AOS (Animate On Scroll) library
-- **Contact Form**: Functional contact form powered by Netlify Forms
 - **Modern UI**: Clean and professional interface
 - **Social Links**: Direct links to professional social media profiles
 - **Skills Visualization**: Progress bars showing technology proficiency
@@ -20,7 +19,7 @@ A modern, responsive portfolio website built with HTML, CSS, and JavaScript. Fea
 - JavaScript
 - Font Awesome Icons
 - AOS (Animate On Scroll) Library
-- Netlify Forms
+
 
 ## 📋 Sections
 
@@ -59,15 +58,7 @@ To modify this portfolio for your use:
 2. Modify styles in `style.css`
 3. Adjust animations and interactions in `script.js`
 4. Replace images in the project
-5. Update social media links
-
-## 📱 Contact Form Setup
-
-The contact form is configured to work with Netlify Forms:
-
-1. Deploy to Netlify
-2. Forms will be automatically detected
-3. Access form submissions in your Netlify dashboard
+5. Update social media 
 
 ## 🎨 Customization
 
